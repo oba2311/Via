@@ -1,0 +1,22 @@
+CREATE TABLE ride_data (
+	request_id DECIMAL(38, 0) NOT NULL, 
+	accepted_ts TIMESTAMP NULL, 
+	rider_id DECIMAL(38, 0) NOT NULL, 
+	driver_id DECIMAL(38, 0) NOT NULL, 
+	ride_id DECIMAL(38, 0) NOT NULL, 
+	pickup_walk_duration DECIMAL(38, 0) NOT NULL, 
+	van_id DECIMAL(38, 0) NOT NULL, 
+	`Ride_Zone` VARCHAR(9) NOT NULL, 
+	ride_status VARCHAR(9) NOT NULL, 
+	ride_distance_km DECIMAL(38, 2) NOT NULL, 
+	last_update_ts TIMESTAMP NULL, 
+	van_is_here_sms_ts TIMESTAMP NULL, 
+	pickup_ts TIMESTAMP NULL, 
+	original_ride_pickup_eta_ts TIMESTAMP NULL, 
+	running_early_notified_ts BOOL, 
+	running_late_notified_ts BOOL, 
+	dropoff_ts TIMESTAMP NULL, 
+	pricing_id DECIMAL(38, 0) NOT NULL, 
+	CHECK (running_early_notified_ts IN (0, 1)), 
+	CHECK (running_late_notified_ts IN (0, 1))
+);
